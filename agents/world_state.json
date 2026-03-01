@@ -1,0 +1,10 @@
+{
+  "nodes": {
+    "Shenzhen": {"type": "factory", "supply": 1000, "cost_per_unit": 50},
+    "Lagos_Apapa": {"type": "port", "transit_fee": 15, "congestion": 0.2},
+    "Lagos_Ikeja": {"type": "customer", "demand": 800, "price_per_unit": 120}
+  },
+  "links": [
+    {"from": "Shenzhen", "to": "Lagos_Apapa", "mode": "sea", "lead_time": 30, "cost": 2000}
+  ]
+}
