@@ -11,7 +11,7 @@ import json
 from datetime import datetime
 
 import streamlit as st
-import pandas as pd
+import pandas as pd  # type: ignore
 
 # ── Ensure the agents package is importable ─────────────────────────
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
