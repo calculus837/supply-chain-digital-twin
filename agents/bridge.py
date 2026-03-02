@@ -72,6 +72,7 @@ class ConsultantAgent:
             )
             if result.returncode != 0:
                 raise RuntimeError(f"Cargo build failed:\n{result.stderr}")
+            os.chmod(BINARY_PATH, 0o755)
             print("  [build] Compilation successful.")
 
     # ── Subprocess bridge to Rust optimizer ─────────────────────────
