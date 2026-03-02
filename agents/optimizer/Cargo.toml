@@ -8,10 +8,10 @@ edition = "2021"
 good_lp = { version = "=1.12.0", default-features = false, features = ["minilp"] }
 zmij = "=1.0.2"
 
-# Linear algebra pins for Rust 1.63 compatibility
+# Linear algebra pins adjusted for perfect compatibility
+sprs = "=0.11.2"
 ndarray = "=0.15.6"
 matrixmultiply = "=0.3.7"
-sprs = "=0.11.1"
 
 # Utility pins to stop the modern rustc crashes
 ryu = "=1.0.13"
