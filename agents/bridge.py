@@ -59,21 +59,23 @@ class ConsultantAgent:
 
     # ── Binary management ───────────────────────────────────────────
 
-    @staticmethod
-    def _ensure_binary():
+    def _ensure_binary(self):
         """Build the Rust optimizer if the release binary is missing."""
         if not os.path.exists(BINARY_PATH):
             print("  [build] Compiling Rust optimizer (release)…")
-            result = subprocess.run(
-                ["/usr/bin/cargo", "build", "--release"],
-                cwd=OPTIMIZER_DIR,
-                capture_output=True,
-                text=True,
-                check=True,
-            )
-            if result.returncode != 0:
-                raise RuntimeError(f"Cargo build failed:\n{result.stderr}")
-            os.chmod(BINARY_PATH, 0o755)
+            try:
+                # We use capture_output=True to grab the real error message
+                result = subprocess.run(
+                    ["/usr/bin/cargo", "build", "--release"],
+                    cwd=OPTIMIZER_DIR,
+                    capture_output=True,
+                    text=True,
+                    check=True,
+                )
+                os.chmod(self.binary_path, 0o755)
+            except subprocess.CalledProcessError as e:
+                # This will print the actual Rust compiler "Panic" to your screen
+                raise RuntimeError(f"Cargo Fail (101):\nSTDOUT: {e.stdout}\nSTDERR: {e.stderr}")
             print("  [build] Compilation successful.")
 
     # ── Subprocess bridge to Rust optimizer ─────────────────────────
