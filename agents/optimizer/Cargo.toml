@@ -4,7 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-# Pinning to much older versions for maximum compatibility
 good_lp = { version = "=1.12.0", default-features = false, features = ["minilp"] }
 zmij = "=1.0.2"
 serde = { version = "1", features = ["derive"] }
