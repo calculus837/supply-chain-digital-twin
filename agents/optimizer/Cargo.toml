@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+# The '=' prefix is mandatory here to stop the 1.15.0 pull
+good_lp = { version = "=1.12.0", default-features = false, features = ["minilp"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
-good_lp = { version = "1.12.0", default-features = false, features = ["minilp"] }
