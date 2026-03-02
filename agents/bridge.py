@@ -65,10 +65,11 @@ class ConsultantAgent:
         if not os.path.exists(BINARY_PATH):
             print("  [build] Compiling Rust optimizer (release)…")
             result = subprocess.run(
-                ["cargo", "build", "--release"],
+                ["/usr/bin/cargo", "build", "--release"],
                 cwd=OPTIMIZER_DIR,
                 capture_output=True,
                 text=True,
+                check=True,
             )
             if result.returncode != 0:
                 raise RuntimeError(f"Cargo build failed:\n{result.stderr}")
