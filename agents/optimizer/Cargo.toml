@@ -4,20 +4,20 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-# Direct optimization dependencies
+# Baseline optimization dependencies
 good_lp = { version = "=1.12.0", default-features = false, features = ["minilp"] }
-zmij = "=1.0.2"
+zmij = "=1.0.0"
 
-# Linear algebra pins
+# Strict 2022 Linear Algebra stack
 sprs = "=0.11.2"
 ndarray = "=0.15.6"
 matrixmultiply = "=0.3.7"
 
-# Parallel processing pins for Rust 1.63 compatibility
+# Parallel processing stability
 rayon = "=1.7.0"
 rayon-core = "=1.11.0"
 
-# Utility pins to stop the modern rustc crashes
+# Utility stability
 ryu = "=1.0.13"
 itoa = "=1.0.6"
 log = "=0.4.17"
